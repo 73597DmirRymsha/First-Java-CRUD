@@ -19,7 +19,8 @@ public class CrudWithVaadinApplicationTests {
 	}
 
 	@Test
-	public void shouldFindTwoBauerCustomers() {
-		then(this.repository.findByLastNameStartsWithIgnoreCase("Bauer")).hasSize(2);
+	public void shouldFindBauerCustomer() {
+		then(this.repository.findByLastNameStartsWithIgnoreCase("Bauer"))
+				.extracting(Customer::getFirstName).containsExactly("Kim");
 	}
 }
